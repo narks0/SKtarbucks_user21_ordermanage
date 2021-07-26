@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ordermanage
-          image: 879772956301.dkr.ecr.ca-central-1.amazonaws.com/user21-order:latest
+          image: 879772956301.dkr.ecr.ca-central-1.amazonaws.com/user21-ordermanage:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
