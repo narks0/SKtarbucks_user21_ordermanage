@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ordermanage
+  namespace: skcc21-ns
+  labels:
+    app: ordermanage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ordermanage
+  template:
+    metadata:
+      labels:
+        app: ordermanage
+    spec:
+      containers:
+        - name: ordermanage
+          image: 879772956301.dkr.ecr.ap-northeast-1.amazonaws.com/user04-order:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: api.menu.url
+              valueFrom:
+                configMapKeyRef:
+                  name: my-config
+                  key: api.menu.url
+          
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ordermanage
+  namespace: skcc21-ns
+  labels:
+    app: ordermanage
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: ordermanage

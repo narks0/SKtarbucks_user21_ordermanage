@@ -1,0 +1,10 @@
+local\AbstractEvent$1.class
+local\config\kafka\KafkaProcessor.class
+local\Order.class
+local\AbstractEvent.class
+local\OrderRepository.class
+local\OrderController.class
+local\PolicyHandler.class
+local\ProductionCompleted.class
+local\ForceCanceled.class
+local\OrderManageApplication.class

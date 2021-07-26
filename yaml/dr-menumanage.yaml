@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: dr-menumanage
+  namespace: skcc21-ns
+spec:
+  host: menumanage
+  trafficPolicy:
+    connectionPool:
+      http:
+        http1MaxPendingRequests: 1
+        maxRequestsPerConnection: 1
+    outlierDetection:
+      interval: 1s
+      consecutiveErrors: 2
+      baseEjectionTime: 10s
+      maxEjectionPercent: 100
