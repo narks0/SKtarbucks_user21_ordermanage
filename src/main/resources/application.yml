@@ -24,7 +24,7 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: OrderManag
+          group: OrderManage
           destination: local
           contentType: application/json
         event-out:
